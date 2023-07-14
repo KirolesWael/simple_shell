@@ -22,7 +22,7 @@ int main()
 		}
 		buffer = create_buff();
 		command = read(STDIN_FILENO, buffer, 1024);
-		if (command == -1 || command == EOF)
+		if (command == -1 || command == 0)
 		{
 			exit(91);
 		}
@@ -47,6 +47,7 @@ int main()
 		else
 		{
 			wait(NULL);
+			free(buffer);
 			continue;
 		}
 		
