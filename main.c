@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 
 		for (i = 0; buffer[i] != '\n'; i++)
 			;
+
 		buffer[i] = '\0';
 		cmd = buffer;
 		arg[0] = cmd;
@@ -40,16 +41,14 @@ int main(int argc, char **argv)
 			id = fork();
 
 		/* if (id == -1)
-		// 	exit(80);*/
+		 	exit(80);*/
 
 		if (id == 0)
 		{
 			int e;
 			e = execve(arg[0], arg, environ);
 			if (e == -1)
-			{
 				perror(argv[0]);
-			}
 		}
 		else
 		{
@@ -57,7 +56,6 @@ int main(int argc, char **argv)
 			free(buffer);
 			continue;
 		}
-
 	}
 
 	return (0);
