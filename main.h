@@ -13,7 +13,10 @@
 #include <errno.h>
 #include <signal.h>
 
+/*buffer.c*/
 char *create_buff();
+
+
 void sighandler(int sig_num);
 
 
