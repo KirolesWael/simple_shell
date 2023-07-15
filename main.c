@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 
 	if (argc != 1)
 		exit(90);
+
 	while (1)
 	{
 		if (write(STDOUT_FILENO, "$", 1) == -1)
@@ -61,4 +62,3 @@ int main(int argc, char **argv)
 
 	return (0);
 }
-
