@@ -11,6 +11,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <signal.h>
 
 char *create_buff();
 void sighandler(int sig_num);
