@@ -16,8 +16,6 @@
 /*buffer.c*/
 char *create_buff();
 
-
 void sighandler(int sig_num);
-
 
 #endif
