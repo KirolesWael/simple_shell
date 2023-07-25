@@ -18,6 +18,8 @@
 /*buffer.c*/
 char *create_buff();
 
-void start(main_t *inf);
+
+void sighandler(int sig_num);
+
 
 #endif
