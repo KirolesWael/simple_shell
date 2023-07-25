@@ -13,11 +13,11 @@
 #include <errno.h>
 #include <signal.h>
 
+#include <structs.h>
+
 /*buffer.c*/
 char *create_buff();
 
-
-void sighandler(int sig_num);
-
+void start(main_t *inf);
 
 #endif
