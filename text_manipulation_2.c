@@ -97,7 +97,7 @@ int contains_letter(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (is_numerical(s[i]) == 0)
+		if (_isdigit(s[i]) == 0)
 			return (1);
 	}
 

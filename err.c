@@ -7,19 +7,18 @@
  *
  * Return: Error message
  **/
-char *message_selector(general_t info)
+char *message_selector(main_t info)
 {
 	int i, n_options;
-	error_t messages[] = {
-		{_ENOENT, _CODE_ENOENT},
-		{_EACCES, _CODE_EACCES},
-		{_CMD_NOT_EXISTS, _CODE_CMD_NOT_EXISTS},
-		{_ILLEGAL_NUMBER, _CODE_ILLEGAL_NUMBER}
-	};
+	err_t messages[] = {
+		{"No such file or directory", 3},
+		{"Permission denied", 13},
+		{"not found", 132},
+		{"Illegal number", 133}};
 
 	n_options = sizeof(messages) / sizeof(messages[0]);
 	for (i = 0; i < n_options; i++)
-		if (info.error_code == messages[i].code)
+		if (info.error == messages[i].code)
 			return (messages[i].message);
 
 	return ("");
@@ -30,7 +29,7 @@ char *message_selector(general_t info)
  *
  * @info: General information about the shell
  **/
-void error(general_t *info)
+void error(main_t *info)
 {
 	char *message;
 	char *number;
@@ -39,7 +38,7 @@ void error(general_t *info)
 
 	number = NULL;
 	message = message_selector(*info);
-	number = to_string(info->n_commands);
+	number = to_string(info->NOCommands);
 
 	size_number = _strlen(number);
 	size_message = _strlen(info->argv[0]);
@@ -64,14 +63,14 @@ void error(general_t *info)
  * @info: General information about the shell
  * @extra: Extra information
  **/
-void error_extra(general_t *info, char *extra)
+void error_extra(main_t *info, char *extra)
 {
 	char *message, *number, *aux, *aux2;
 	int size_number, size_message, size_extra;
 
 	number = NULL;
 	message = message_selector(*info);
-	number = to_string(info->n_commands);
+	number = to_string(info->NOCommands);
 
 	size_number = _strlen(number);
 	size_message = _strlen(info->argv[0]);
