@@ -44,7 +44,6 @@ char *to_string(int number)
 	return (_number);
 }
 
-
 /**
  * _isdigit - determine if digit
  *
