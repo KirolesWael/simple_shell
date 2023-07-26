@@ -10,46 +10,46 @@
  **/
 char **split_words(char *line, const char *sep)
 {
-	char **words, **tmp, *token;
-	size_t new_size, old_size;
+	char **wds, **tmp, *token;
+	size_t n_size, o_size;
 
-	old_size = sizeof(char *);
-	words = malloc(old_size);
-	if (words != NULL)
+	o_size = sizeof(char *);
+	wds = malloc(o_size);
+	if (wds != NULL)
 	{
-		new_size = 1;
+		n_size = 1;
 		token = strtok(line, sep);
 		while (token)
 		{
 			if (token[0] == '#')
 				break;
-			tmp = _realloc(words, old_size, (new_size + 1) * sizeof(char *));
-			old_size = (new_size + 1) * sizeof(char *);
+			tmp = _realloc(wds, o_size, (n_size + 1) * sizeof(char *));
+			o_size = (n_size + 1) * sizeof(char *);
 			if (tmp == NULL)
 				break;
 
-			words = tmp;
-			++new_size;
+			wds = tmp;
+			++n_size;
 
-			words[new_size - 2] = malloc(_strlen(token) + 1);
-			if (words == NULL)
+			wds[n_size - 2] = malloc(_strlen(token) + 1);
+			if (wds == NULL)
 			{
-				free(words);
+				free(wds);
 				free(tmp);
 			}
 
-			if (words[new_size - 2] != NULL)
-				_strcpy(words[new_size - 2], token);
+			if (wds[n_size - 2] != NULL)
+				_strcpy(wds[n_size - 2], token);
 
 			token = strtok(NULL, sep);
 
 			tmp = NULL;
 		}
 
-		words[new_size - 1] = NULL;
+		wds[n_size - 1] = NULL;
 	}
 
-	return (words);
+	return (wds);
 }
 
 /**
