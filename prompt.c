@@ -1,5 +1,10 @@
 #include "main.h"
 
+/*
+read_prompt -> readProm
+start_prompt -> startProm
+*/
+
 /**
  * prompt - Print the prompt
  *

@@ -1,4 +1,11 @@
 #include "main.h"
+/*
+print_err -> printError
+_putchar -> putChar
+_putchar_to_fd -> putCharFD
+print_to_fd -> printFD
+*/
+
 /**
  * printNormal - Print a message to STDOUT
  *

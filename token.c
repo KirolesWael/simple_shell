@@ -1,16 +1,5 @@
 #include "main.h"
 
-/* sep -> separted
-new_size -> new
-old_size -> old
-tmp -> tempo
-words -> sentence
-size_str1 -> size1      nfs elklam 3la 2 w 3 w 4
-size_sep -> sepatationSize          try using camelCase
-split_words -> breakingWords
-join_words -> jointOfWords
-*/
-
 /**
  * split_words - Split a line into words
  *
