@@ -59,17 +59,3 @@ int number_controller(main_t *info, char *number)
 
 	return (1);
 }
-
-/**
- * bin_env - Implementation for the env builtin
- *
- * @info: General information about the shell
- * @arguments: Command
- **/
-void bin_env(main_t *info, char **arguments)
-{
-	(void) info;
-	(void) arguments;
-
-	get_full_env();
-}

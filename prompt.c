@@ -1,17 +1,6 @@
 #include "main.h"
 
 /**
- * start - Handle the mode
- * Description: Mode can be 1 or 0
- *
- * @info: Struct of information about the shell
- **/
-void start(main_t *info)
-{
-	start_prompt(info);
-}
-
-/**
  * prompt - Print the prompt
  *
  * @info: Struct of general information
