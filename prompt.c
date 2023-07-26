@@ -19,11 +19,11 @@ void prompt(main_t *info)
 }
 
 /**
- * read_prompt - Read lines in the prompt
+ *  readProm - Read lines in the prompt
  *
  * Return: Buffer readed or NULL if EOF was found
  **/
-char *read_prompt()
+char * readProm()
 {
 	char *buf;
 	int res;
@@ -43,13 +43,13 @@ char *read_prompt()
 }
 
 /**
- * start_prompt - Loop reading text
+ * startProm - Loop reading text
  *
  * @info: Struct of general information
  *
  * Return: Buffer readed or NULL if EOF was found
  **/
-void start_prompt(main_t *info)
+void startProm(main_t *info)
 {
 	char *buff;
 	char **arguments;
@@ -64,7 +64,7 @@ void start_prompt(main_t *info)
 		is_current_path(path, info);
 
 		info->environ = path;
-		buff = read_prompt();
+		buff =  readProm();
 		if (buff == NULL)
 		{
 			print(info->mode == 1 ? "exit\n" : "");

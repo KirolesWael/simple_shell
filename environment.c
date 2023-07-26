@@ -129,7 +129,7 @@ void get_full_env(void)
 	for (i = 0, tempo = environ; tempo[i] != NULL; i++)
 	{
 		print(tempo[i]);
-		_putchar('\n');
+		putChar('\n');
 	}
 }
 

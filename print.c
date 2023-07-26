@@ -16,7 +16,7 @@ print_to_fd -> printFD
  **/
 int print(char *msg)
 {
-    return (print_to_fd(msg, 1));
+    return (printFD(msg, 1));
 }
 /**
  * printError - Print a message to STDERR
@@ -25,9 +25,9 @@ int print(char *msg)
  *
  * Return: Number of bytes printed
  **/
-int print_err(char *msg)
+int printError(char *msg)
 {
-    return (print_to_fd(msg, 2));
+    return (printFD(msg, 2));
 }
 /**
  * putChar - Print a character to STDOUT
@@ -37,7 +37,7 @@ int print_err(char *msg)
  * Return: On success 1
  * On error -1
  **/
-int _putchar(char c)
+int putChar(char c)
 {
     return (write(1, &c, 1));
 }
@@ -51,7 +51,7 @@ int _putchar(char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  **/
-int _putchar_to_fd(char l, int fd)
+int putChar_to_fd(char l, int fd)
 {
     return (write(fd, &l, 1));
 }
@@ -64,7 +64,7 @@ int _putchar_to_fd(char l, int fd)
  * Return: On success numbers of bytes printed.
  * On error, -1 is returned, and errno is set appropriately.
  **/
-int print_to_fd(char *msg, int fd)
+int printFD(char *msg, int fd)
 {
     int size;
     size = _strlen(msg);

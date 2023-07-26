@@ -63,10 +63,10 @@ int contains_letter(char *s);
 
 /*print*/
 int print(char *msg);
-int print_err(char *msg);
-int _putchar(char c);
-int _putchar_to_fd(char l, int fd);
-int print_to_fd(char *msg, int fd);
+int printError(char *msg);
+int putChar(char c);
+int putChar_to_fd(char l, int fd);
+int printFD(char *msg, int fd);
 
 /* memory.c */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
@@ -111,17 +111,17 @@ int current_directory(char *cmd, char **arguments, char *buff,
 void start(main_t *info);
 
 /* text.c */
-void start_prompt(main_t *info);
+void startProm(main_t *info);
 void prompt(main_t *info);
-char *read_prompt();
+char * readProm();
 void sigintHandler(int sig_num);
 
 /* printers.c */
-int _putchar_to_fd(char l, int fd);
-int print_to_fd(char *msg, int fd);
-int _putchar(char c);
+int putChar_to_fd(char l, int fd);
+int printFD(char *msg, int fd);
+int putChar(char c);
 int print(char *msg);
-int print_err(char *msg);
+int printError(char *msg);
 
 /* tokenization.c */
 char **breakingWords(char *line, const char *separted);

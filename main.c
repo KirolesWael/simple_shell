@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	info->argc = argc;
 	info->argv = argv;
 	info->mode = isatty(0) == 1;
-	start_prompt(info);
+	startProm(info);
 
 	status_code = info->status;
 

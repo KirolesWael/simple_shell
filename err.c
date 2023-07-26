@@ -50,7 +50,7 @@ void error(main_t *info)
 	aux = _strcat(aux, number);
 
 	message = jointOfWords(aux, info->command, message, ": ");
-	print_err(message);
+	printError(message);
 
 	free(message);
 	free(number);
@@ -87,7 +87,7 @@ void error_extra(main_t *info, char *extra)
 	aux2 = _strcat(aux2, extra);
 
 	message = jointOfWords(aux, info->command, aux2, ": ");
-	print_err(message);
+	printError(message);
 
 	free(message);
 	free(number);
