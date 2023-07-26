@@ -19,48 +19,48 @@ join_words -> jointOfWords
  *
  * Return: Set of words
  **/
-char **split_words(char *line, const char *sep)
+char **breakingWords(char *line, const char *separted)
 {
-	char **wds, **tmp, *token;
-	size_t n_size, o_size;
+	char **sentence, **tempo, *token;
+	size_t new, old;
 
-	o_size = sizeof(char *);
-	wds = malloc(o_size);
-	if (wds != NULL)
+	old = sizeof(char *);
+	sentence = malloc(old);
+	if (sentence != NULL)
 	{
-		n_size = 1;
-		token = strtok(line, sep);
+		new = 1;
+		token = strtok(line, separted);
 		while (token)
 		{
 			if (token[0] == '#')
 				break;
-			tmp = _realloc(wds, o_size, (n_size + 1) * sizeof(char *));
-			o_size = (n_size + 1) * sizeof(char *);
-			if (tmp == NULL)
+			tempo = _realloc(sentence, old, (new + 1) * sizeof(char *));
+			old = (new + 1) * sizeof(char *);
+			if (tempo == NULL)
 				break;
 
-			wds = tmp;
-			++n_size;
+			sentence = tempo;
+			++new;
 
-			wds[n_size - 2] = malloc(_strlen(token) + 1);
-			if (wds == NULL)
+			sentence[new - 2] = malloc(_strlen(token) + 1);
+			if (sentence == NULL)
 			{
-				free(wds);
-				free(tmp);
+				free(sentence);
+				free(tempo);
 			}
 
-			if (wds[n_size - 2] != NULL)
-				_strcpy(wds[n_size - 2], token);
+			if (sentence[new - 2] != NULL)
+				_strcpy(sentence[new - 2], token);
 
-			token = strtok(NULL, sep);
+			token = strtok(NULL, separted);
 
-			tmp = NULL;
+			tempo = NULL;
 		}
 
-		wds[n_size - 1] = NULL;
+		sentence[new - 1] = NULL;
 	}
 
-	return (wds);
+	return (sentence);
 }
 
 /**
@@ -69,46 +69,46 @@ char **split_words(char *line, const char *sep)
  * @word1: Word1 to join
  * @word2: Word2 to join
  * @word3: Word3 to join
- * @sep: Separator between the words
+ * @separted: Separator between the words
  *
  * Return: Line composed by 3 parts followed by a separator and
  * end by a new line
  **/
-char *join_words(char *word1, char *word2, char *word3, const char *sep)
+char *jointOfWords(char *word1, char *word2, char *word3, const char *separted)
 {
 	char *aux;
-	int size_str1, size_str2, size_str3, size_sep;
+	int size1, size2, size3, sepatationSizearted;
 
-	size_str1 = size_str2 = size_sep = 0;
+	size1 = size2 = sepatationSizearted = 0;
 
 	if (word1 != NULL)
-		size_str1 = _strlen(word1);
+		size1 = _strlen(word1);
 	else
 		word1 = "";
 
 	if (word2 != NULL)
-		size_str2 = _strlen(word2);
+		size2 = _strlen(word2);
 	else
 		word2 = "";
 
 	if (word3 != NULL)
-		size_str3 = _strlen(word3);
+		size3 = _strlen(word3);
 	else
 		word3 = "";
 
-	if (sep != NULL)
-		size_sep = _strlen((char *)sep);
+	if (separted != NULL)
+		sepatationSizearted = _strlen((char *)separted);
 	else
-		sep = "";
+		separted = "";
 
-	aux = malloc(size_str1 + size_str2 + size_sep + size_str3 + size_sep + 2);
+	aux = malloc(size1 + size2 + sepatationSizearted + size3 + sepatationSizearted + 2);
 	if (aux == NULL)
 		return (NULL);
 
 	aux = _strcpy(aux, word1);
-	aux = _strcat(aux, (char *)sep);
+	aux = _strcat(aux, (char *)separted);
 	aux = _strcat(aux, word2);
-	aux = _strcat(aux, (char *)sep);
+	aux = _strcat(aux, (char *)separted);
 	aux = _strcat(aux, word3);
 	aux = _strcat(aux, "\n");
 

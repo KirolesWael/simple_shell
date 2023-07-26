@@ -76,7 +76,7 @@ char *replace_value(main_t *info, int *index, char *string)
 **/
 char *replacement(main_t *info, int *index, char *string)
 {
-	char *tmp;
+	char *tempo;
 	char symbol;
 
 	(void) index;
@@ -84,14 +84,14 @@ char *replacement(main_t *info, int *index, char *string)
 	symbol = *string;
 	if (symbol != '?' && symbol != '$')
 	{
-		tmp = replace_env(info, string);
-		return (tmp);
+		tempo = replace_env(info, string);
+		return (tempo);
 	}
 
-	tmp = (symbol == '$') ? to_string(info->PID) :
+	tempo = (symbol == '$') ? to_string(info->PID) :
 		to_string(info->status);
 
-	return (tmp);
+	return (tempo);
 }
 
 /**

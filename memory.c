@@ -66,10 +66,10 @@ void free_memory_p(void *ptr)
  **/
 void free_memory_pp(void **ptr)
 {
-	void **tmp;
+	void **tempo;
 
-	for (tmp = ptr; *tmp != NULL; tmp++)
-		free_memory_p(*tmp);
+	for (tempo = ptr; *tempo != NULL; tempo++)
+		free_memory_p(*tempo);
 
 	free_memory_p(ptr);
 }
