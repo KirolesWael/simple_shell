@@ -61,7 +61,7 @@ char *_getenv(const char *name)
  */
 char *which(char *filename, main_t *info)
 {
-	char *path, *tmp_path, *token;
+	char *path, *tempo_path, *token;
 	char *slash;
 	int size;
 
@@ -80,19 +80,19 @@ char *which(char *filename, main_t *info)
 
 	while (token != NULL)
 	{
-		tmp_path = malloc(_strlen(token) + size);
-		tmp_path = _strcpy(tmp_path, token);
-		tmp_path = _strcat(tmp_path, slash);
+		tempo_path = malloc(_strlen(token) + size);
+		tempo_path = _strcpy(tempo_path, token);
+		tempo_path = _strcat(tempo_path, slash);
 
-		if (is_executable(tmp_path) == 1)
+		if (is_executable(tempo_path) == 1)
 		{
 			free(slash);
 			free(path);
-			return (tmp_path);
+			return (tempo_path);
 		}
 		token = strtok(NULL, ":");
 
-		free(tmp_path);
+		free(tempo_path);
 	}
 
 	free(path);
@@ -123,12 +123,12 @@ void is_current_path(char *path, main_t *info)
  **/
 void get_full_env(void)
 {
-	char **tmp;
+	char **tempo;
 	int i;
 
-	for (i = 0, tmp = environ; tmp[i] != NULL; i++)
+	for (i = 0, tempo = environ; tempo[i] != NULL; i++)
 	{
-		print(tmp[i]);
+		print(tempo[i]);
 		_putchar('\n');
 	}
 }

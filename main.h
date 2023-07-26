@@ -124,8 +124,8 @@ int print(char *msg);
 int print_err(char *msg);
 
 /* tokenization.c */
-char **split_words(char *line, const char *sep);
-char *join_words(char *word1, char *word2, char *word3, const char *sep);
+char **breakingWords(char *line, const char *separted);
+char *jointOfWords(char *word1, char *word2, char *word3, const char *sep);
 
 /* patterns.c */
 void analyze_patterns(main_t *info, char **arguments);

@@ -70,7 +70,7 @@ void start_prompt(main_t *info)
 		info->NOCommands++;
 		if (buff[0] != '\n')
 		{
-			arguments = split_words(buff, " \t\n");
+			arguments = breakingWords(buff, " \t\n");
 
 			info->argument = arguments;
 			info->buffer = buff;
