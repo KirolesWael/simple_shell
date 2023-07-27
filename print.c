@@ -1,10 +1,4 @@
 #include "main.h"
-/*
-print_err -> printError
-_putchar -> putChar
-_putchar_to_fd -> putCharFD
-print_to_fd -> printFD
-*/
 
 /**
  * printNormal - Print a message to STDOUT
@@ -14,7 +8,7 @@ print_to_fd -> printFD
  * Return: On success number of bytes printed
  * On errror -1, and set the error
  **/
-int print(char *msg)
+int printNormal(char *msg)
 {
     return (printFD(msg, 1));
 }
@@ -51,7 +45,7 @@ int putChar(char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  **/
-int putChar_to_fd(char l, int fd)
+int putCharFD(char l, int fd)
 {
     return (write(fd, &l, 1));
 }
@@ -66,7 +60,7 @@ int putChar_to_fd(char l, int fd)
  **/
 int printFD(char *msg, int fd)
 {
-    int size;
-    size = _strlen(msg);
-    return (write(fd, msg, size));
+    int sz;
+    sz = _strlen(msg);
+    return (write(fd, msg, sz));
 }

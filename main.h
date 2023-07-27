@@ -18,30 +18,30 @@
 /*structs*/
 typedef struct __attribute__((__packed__))
 {
-    int argc;
-    char **argv;
-    int mode;
-    int error;
-    char *command;
-    int NOCommands;
-    char *path;
-    int correct_path;
-    int status;
-    char *buffer;
-    char **argument;
-    char *environ;
-    int PID;
+	int argc;
+	char **argv;
+	int mode;
+	int error;
+	char *command;
+	int NOCommands;
+	char *path;
+	int correct_path;
+	int status;
+	char *buffer;
+	char **argument;
+	char *environ;
+	int PID;
 } main_t;
 
 typedef struct __attribute__((__packed__))
 {
-    char *message;
-    int code;
+	char *message;
+	int code;
 } err_t;
 
 typedef struct __attribute__((__packed__))
 {
-    char *command;
+	char *command;
 	void (*exec)(main_t *info, char **argunemt);
 } builtinfunc_t;
 
@@ -61,13 +61,6 @@ int _isdigit(int c);
 int _atoi(char *s);
 int contains_letter(char *s);
 
-/*print*/
-int print(char *msg);
-int printError(char *msg);
-int putChar(char c);
-int putChar_to_fd(char l, int fd);
-int printFD(char *msg, int fd);
-
 /* memory.c */
 void *_realloc(void *ptr, size_t old_size, size_t new_size);
 void free_memory_p(void *ptr);
@@ -86,13 +79,8 @@ int check_builtin(main_t *info, char **arguments);
 void bin_exit(main_t *info, char **arguments);
 int number_controller(main_t *info, char *number);
 
-/* env.c */
-void bin_env(main_t *info, char **arguments);
-
-/* commands.c */
+/* commands_permissions.c */
 void analyze(char **arguments, main_t *info, char *buff);
-
-/* permissions.c */
 int is_executable(char *filename);
 int is_file(char *command);
 
@@ -101,29 +89,26 @@ char *_getenv(const char *name);
 char *which(char *filename, main_t *info);
 void is_current_path(char *path, main_t *info);
 void get_full_env(void);
+void bin_env(main_t *info, char **arguments);
 
 /* execute.c */
 void execute(char *commands, char **arguments, main_t *info, char *buff);
-int current_directory(char *cmd, char **arguments, char *buff,
-					  main_t *info);
+int current_directory(char *cmd, char **arguments, char *buff, main_t *info);
 
-/* Entry point of the shell */
-void start(main_t *info);
-
-/* text.c */
+/* prompt.c */
 void startProm(main_t *info);
 void prompt(main_t *info);
-char * readProm();
+char *readProm();
 void sigintHandler(int sig_num);
 
-/* printers.c */
+/* print.c */
 int putChar_to_fd(char l, int fd);
 int printFD(char *msg, int fd);
 int putChar(char c);
-int print(char *msg);
+int printNormal(char *msg);
 int printError(char *msg);
 
-/* tokenization.c */
+/* token.c */
 char **breakingWords(char *line, const char *separted);
 char *jointOfWords(char *word1, char *word2, char *word3, const char *sep);
 

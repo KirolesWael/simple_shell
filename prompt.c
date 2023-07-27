@@ -1,10 +1,5 @@
 #include "main.h"
 
-/*
-read_prompt -> readProm
-start_prompt -> startProm
-*/
-
 /**
  * prompt - Print the prompt
  *
@@ -15,7 +10,7 @@ void prompt(main_t *info)
 	if (info->mode == 0)
 		return;
 
-	print("$ ");
+	printNormal("$ ");
 }
 
 /**
@@ -67,7 +62,7 @@ void startProm(main_t *info)
 		buff =  readProm();
 		if (buff == NULL)
 		{
-			print(info->mode == 1 ? "exit\n" : "");
+			printNormal(info->mode == 1 ? "exit\n" : "");
 			free(path);
 			break;
 		}
@@ -101,6 +96,6 @@ void sigintHandler(int sig_num)
 	(void) sig_num;
 
 	signal(2, sigintHandler);
-	print("\n$ ");
+	printNormal("\n$ ");
 	fflush(stdout);
 }
